@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  background: #2c2c3d !important;
+}
+
+.main-content {
+  padding: 0;
+  margin: 0;
+  // background: url("/assets/images/ofc-bg.jpg") 50%/cover no-repeat;
+}
+
+.content-wrapper {
+  display: flex;
+  // min-height: calc(100vh - [header-height] - [footer-height]); // Adjust if header/footer fixed
+  min-height: calc(100vh - 10vh); // Adjust if header/footer fixed
+}
+
+app-sidebar {
+  width: 15%;
+  min-width: 250px; // Optional: min width for smaller screens
+  // background-color: hwb(0deg 88.07% 6.56%); // Style as needed
+  padding: 1rem;
+  border: 1px solid #32404e;
+  box-sizing: border-box;
+}
+
+.page-content {
+  width: 100%;
+  padding: 5rem;
+  padding-bottom: 0rem;
+  box-sizing: border-box;
+}
+
+.login-content {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+  app-sidebar,
+  .page-content {
+    width: 100%;
+  }
+
+  .page-content {
+    padding: 1rem; /* or 0.5rem for very small screens */
+    padding-bottom: 0rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+  app-sidebar,
+  .page-content {
+    width: 100%;
+  }
+  .page-content {
+    padding: 1rem; /* or 0.5rem for very small screens */
+    padding-bottom: 0rem;
+  }
+  
+}
+

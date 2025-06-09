@@ -1,0 +1,88 @@
+<nav class="navbar main-header d-flex flex-column px-4 py-3">
+  <!-- Top Row: Logo and User Section -->
+  <div class="d-flex w-100 align-items-center justify-content-between flex-wrap">
+    <!-- Logo -->
+    <div class="logo-section">
+      <img src="assets/images/OfferCraft_Header.png" alt="OfferCraft Logo" class="logo-img" />
+    </div>
+ 
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu d-md-none" (click)="toggleMobileMenu()" aria-label="Toggle navigation menu">
+      <i class="bi bi-list" *ngIf="!isMobileMenuOpen"></i>
+      <i class="bi bi-x" *ngIf="isMobileMenuOpen"></i>
+    </button>
+ 
+    <!-- Desktop Navigation -->
+    <div class="nav-links d-none d-md-flex flex-wrap mt-2">
+      <ng-container *ngFor="let link of navLinks">
+        <a class="nav-link px-3"
+           [routerLink]="link.path"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: link.path === '/' }">
+          {{ link.label }}
+        </a>
+      </ng-container>
+    </div>
+ 
+    <!-- User Section (Desktop Only) -->
+    <div class="user-section d-none d-md-flex align-items-center">
+      <div class="dropdown">
+        <button class="btn user-menu-btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-person-fill user-icon"></i>
+          <i class=" dropdown-arrow"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end user-dropdown" aria-labelledby="userDropdown">
+          <div class="dropdown-content">
+            <div class="help-mode-row">
+              <span>Help Mode</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input help-toggle" type="checkbox" role="switch" id="helpModeSwitch">
+              </div>
+            </div>
+            <a class="dropdown-item" href="#"><i class="bi bi-person"></i><span>PROFILE</span></a>
+            <a class="dropdown-item" href="#"><i class="bi bi-cloud-upload"></i><span>MEDIA MANAGER</span></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" (click)="SignOut($event)"><i class="bi bi-box-arrow-right"></i><span>SIGN OUT</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav" [class.show]="isMobileMenuOpen">
+    <div class="mobile-nav-links">
+      <ng-container *ngFor="let link of navLinks">
+        <a class="mobile-nav-link"
+           [routerLink]="link.path"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+           (click)="closeMobileMenu()">
+          {{ link.label }}
+        </a>
+      </ng-container>
+      <!-- User Section (Mobile Only) moved here -->
+      <div class="user-section-mobile d-block d-md-none mt-4">
+        <div class="dropdown">
+          <button class="btn user-menu-btn dropdown-toggle w-100" type="button" (click)="toggleMobileDropdown()">
+            <i class=" dropdown-arrow">PIYUSH SRIVASTAVA</i>
+          </button>
+          <div class="dropdown-menu user-dropdown w-100" *ngIf="isMobileDropdownOpen">
+            <div class="dropdown-content">
+              <div class="help-mode-row">
+                <span>Help Mode</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input help-toggle" type="checkbox" role="switch" id="helpModeSwitchMobile">
+                </div>
+              </div>
+              <a class="dropdown-item" href="#"><i class="bi bi-person"></i><span>PROFILE</span></a>
+              <a class="dropdown-item" href="#"><i class="bi bi-cloud-upload"></i><span>MEDIA MANAGER</span></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" (click)="SignOut($event)"><i class="bi bi-box-arrow-right"></i><span>SIGN OUT</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

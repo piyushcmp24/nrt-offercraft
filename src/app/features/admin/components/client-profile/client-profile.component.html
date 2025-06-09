@@ -1,0 +1,240 @@
+<div class="card mb-4">
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSave()">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Contact Info</h5>
+      <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <!-- Left Column (Logo Upload) -->
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Logo</label>
+          <div class="border rounded p-3 text-center" style="height: 180px;">
+            <img *ngIf="logoUrl" [src]="logoUrl" class="img-fluid mb-2" style="max-height: 100px;" />
+            <input type="file" class="form-control-file" (change)="onLogoChange($event)">
+            <a class="text-primary mt-2 d-block" style="cursor:pointer;">Choose</a>
+          </div>
+        </div>
+
+        <!-- Right Column (Form Fields) -->
+        <div class="col-md-8">
+          <div class="row">
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Account ID</label>
+              <input type="text" class="form-control form-control-sm form-control-plaintext" formControlName="accountId"
+                readonly>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Contact Email</label>
+              <input type="email" class="form-control form-control-sm" formControlName="contactEmail">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Client Name</label>
+              <input type="text" class="form-control form-control-sm" formControlName="clientName">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>SMS Source Number Override</label>
+              <input type="text" class="form-control form-control-sm" formControlName="smsOverride">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Contact Name</label>
+              <input type="text" class="form-control form-control-sm" formControlName="contactName">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Contact Phone</label>
+              <input type="text" class="form-control form-control-sm" formControlName="contactPhone">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Language</label>
+              <select class="form-control form-control-sm" formControlName="language">
+                <option value="en">English</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Country Code</label>
+              <select class="form-control form-control-sm" formControlName="countryCode">
+                <option value="+91">(+91) India</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Time Zone</label>
+              <select class="form-control form-control-sm" formControlName="timeZone">
+                <option value="est">(UTC-5) EST</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Date Format</label>
+              <select class="form-control form-control-sm" formControlName="datetimeFormat">
+                <option value="MM/dd/yy">MM/dd/yy</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Employee Postfix</label>
+              <input type="text" class="form-control form-control-sm" formControlName="employeePostfix">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Max Savings Threshold</label>
+              <input type="text" class="form-control form-control-sm" formControlName="maxSavings">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Password Expiration</label>
+              <input type="number" class="form-control form-control-sm" formControlName="passwordExpiration">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Idle Logout Time</label>
+              <input type="number" class="form-control form-control-sm" formControlName="idleLogoutTime">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>User Token Expiration</label>
+              <input type="number" class="form-control form-control-sm" formControlName="userTokenExpiration">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Tenant Key</label>
+              <input type="text" class="form-control form-control-sm" formControlName="tenantKey">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Group</label>
+              <input type="text" class="form-control form-control-sm" formControlName="group">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">CSV Column Separator</label>
+              <input class="form-control" formControlName="csvSeparator" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" formControlName="showCountryDropdown"
+                  id="countryDropdown">
+                <label class="form-check-label" for="countryDropdown">
+                  Display Country Dropdown
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <div class="form-group form-check form-switch">
+                <input type="checkbox" class="form-check-input" id="allowChangeLiveCampaigns"
+                  formControlName="allowChangeLiveCampaigns">
+                <label class="form-check-label" for="allowChangeLiveCampaigns">
+                  Allow Change Live Campaigns
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <div class="form-group form-check form-switch">
+                <input type="checkbox" class="form-check-input" id="allowChangeLiveCampaigns"
+                  formControlName="allowChangeLiveCampaigns">
+                <label class="form-check-label" for="allowChangeLiveCampaigns">
+                  Apply token expiration based on user activity
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <div class="form-group form-check form-switch">
+                <input type="checkbox" class="form-check-input" id="allowChangeLiveCampaigns"
+                  formControlName="allowChangeLiveCampaigns">
+                <label class="form-check-label" for="allowChangeLiveCampaigns">
+                  Two Factor Authentication
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <div class="form-group form-check form-switch">
+                <input type="checkbox" class="form-check-input" id="allowChangeLiveCampaigns"
+                  formControlName="allowChangeLiveCampaigns">
+                <label class="form-check-label" for="allowChangeLiveCampaigns">
+                  Use Account TimeZone For External API
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 offset-md-4">
+          <!-- Your cards here -->
+          <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">Preloader Customization</h5>
+            </div>
+
+            <div class="card-body">
+
+              <div class="mb-3">
+                <label class="form-label">Preloader Image</label>
+                <input type="file" class="form-control form-control-sm" (change)="onPreloaderImageChange($event)" />
+                <img *ngIf="preloaderImagePreview" [src]="preloaderImagePreview" alt="Preloader Preview" width="100"
+                  class="mt-2" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Background Color</label>
+                <input class="form-control form-control-sm" formControlName="backgroundColor" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Preloader Text</label>
+                <input class="form-control form-control-sm" formControlName="preloaderText" />
+              </div>
+
+            </div>
+          </div>
+
+          <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">Redemption Options</h5>
+            </div>
+            <div class="card-body">
+              <div class="card-body">
+                <div class="form-check mb-2">
+                  <input type="checkbox" class="form-check-input" id="collectIp" formControlName="collectIp" />
+                  <label class="form-check-label" for="collectIp">Collect local IP address for redemptions</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input type="checkbox" class="form-check-input" id="enableExpiredRewards"
+                    formControlName="enableExpiredRewards" />
+                  <label class="form-check-label" for="enableExpiredRewards">Enable User Redeem Expired
+                    Rewards</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input type="checkbox" class="form-check-input" id="allowPrint" formControlName="allowPrint" />
+                  <label class="form-check-label" for="allowPrint">Allow User Print On Redemption Portal</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input type="checkbox" class="form-check-input" id="backToPin" formControlName="backToPin" />
+                  <label class="form-check-label" for="backToPin">Back to Pin Pad page after redemption</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input type="checkbox" class="form-check-input" id="allowReprint" formControlName="allowReprint" />
+                  <label class="form-check-label" for="allowReprint">Allow User Reprint On Redemption Portal</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+</div>

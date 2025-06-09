@@ -1,0 +1,53 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background: linear-gradient(to top, #e0f2f1 40%, #b3e5fc 90%);
+  // background-image: url('/assets/wood-floor.jpg'); // Optional wooden floor image
+  background: url("/assets/images/ofc-bg.jpg") 50%/cover no-repeat;
+  // background-position: bottom;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+}
+
+.login-box {
+  // background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  width: 140px;
+  margin-bottom: 20px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.forgot-link {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #2196f3;
+  text-decoration: none;
+}
+
+.footer-text {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 1.5rem;
+}
+
+.error-message {
+  color: red;
+  font-size: 13px;
+  text-align: left;
+  margin-bottom: 10px;  // Space before next input
+  padding-left: 2px;    // Optional: aligns nicely under input
+}

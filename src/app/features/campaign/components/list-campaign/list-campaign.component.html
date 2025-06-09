@@ -1,0 +1,113 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <!-- Left side: Campaign Content -->
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Campaigns</h5>
+
+            <div class="d-flex flex-wrap gap-2">
+              <select class="form-select form-select-sm" style="width: auto; min-width: 120px;">
+                <option>List Options</option>
+              </select>
+
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Search"
+                style="width: auto; min-width: 150px;"
+              />
+
+              <select class="form-select form-select-sm" style="width: auto; min-width: 140px;">
+                <option>Campaign Lobby</option>
+              </select>
+
+              <button class="btn btn-sm btn-outline-primary">Add Campaign</button>
+            </div>
+          </div>
+          
+          
+
+          <!-- Campaign Meta Info -->
+          <p class="mb-2">
+            <strong>15</strong> items displayed out of <strong>44</strong> total
+          </p>
+
+          
+          <!-- Campaign Card -->
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-3 d-flex align-items-center justify-content-center bg-light">
+                <img
+                  src="https://via.placeholder.com/150"
+                  class="img-fluid p-2"
+                  alt="Campaign"
+                />
+              </div>
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h5 class="card-title">New Campaign</h5>
+                  <p class="card-text">
+                    This campaign is scheduled to run from <strong>June 9, 2025</strong> to
+                    <strong>June 23, 2025</strong>
+                  </p>
+                  <div class="mb-2">
+                    <span class="badge bg-info text-dark">Pending</span>
+                  </div>
+                  <div class="mb-1">
+                    <strong>Public Web Access</strong>
+                  </div>
+                  <div class="d-flex flex-wrap align-items-center gap-2">
+                    <div>
+                      <strong>PREVIEW</strong>
+                      <button class="btn btn-sm btn-outline-danger">Disable</button>
+                      <span class="ms-2">PREVIEW-094D4C91</span>
+                      <button class="btn btn-sm btn-outline-secondary">Show link</button>
+                    </div>
+                    <div>
+                      <strong>LIVE</strong>
+                      <button class="btn btn-sm btn-outline-primary">Enable</button>
+                      <span class="ms-2">None</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination (optional) -->
+          <nav>
+            <ul class="pagination pagination-sm">
+              <li class="page-item disabled"><a class="page-link">&lt;</a></li>
+              <li class="page-item active"><a class="page-link">1</a></li>
+              <li class="page-item"><a class="page-link">2</a></li>
+              <li class="page-item"><a class="page-link">3</a></li>
+              <li class="page-item"><a class="page-link">&gt;</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side: Tags -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">Tags</div>
+        <ul class="list-group list-group-flush">
+          <li
+            *ngFor="let tag of tags"
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            <div class="form-check">
+              <input class="form-check-input me-2" type="checkbox" [(ngModel)]="tag.checked" />
+              <label class="form-check-label">{{ tag.label }}</label>
+            </div>
+            <span class="badge bg-secondary rounded-pill">{{ tag.count }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

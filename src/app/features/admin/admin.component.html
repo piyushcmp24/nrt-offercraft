@@ -1,0 +1,25 @@
+<!-- admin.component.html -->
+<div class="admin-container">
+  <nav class="admin-tab-nav">
+    <a routerLink="client-profile" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" [ngClass]="{ 'active-tab': router.url.includes('client-profile') }">Client Profile</a>
+    <a routerLink="integrations" routerLinkActive="active-tab">Integrations</a>
+    <a routerLink="templates" routerLinkActive="active-tab">Templates</a>
+    <a routerLink="email" routerLinkActive="active-tab">Email</a>
+    <a routerLink="users" routerLinkActive="active-tab">Users</a>
+    <a routerLink="available-features" routerLinkActive="active-tab">Available Features</a>
+    <a routerLink="locations" routerLinkActive="active-tab">Locations</a>
+    <a routerLink="report-delivery-schedule" routerLinkActive="active-tab">Report Delivery Schedule</a>
+    <a routerLink="issued-rewards" routerLinkActive="active-tab">Issued Rewards</a>
+    <a routerLink="message-resend" routerLinkActive="active-tab">Message Resend</a>
+    <a routerLink="evergreen" routerLinkActive="active-tab">Evergreen</a>
+    <a routerLink="roles-and-permissions" routerLinkActive="active-tab">Roles and Permissions</a>
+    <a routerLink="client-account-apps" routerLinkActive="active-tab">Client Account Apps</a>
+    <a routerLink="campaigns-cache" routerLinkActive="active-tab">Campaigns Cache</a>
+    <a routerLink="pvl-update" routerLinkActive="active-tab">PVL Update</a>
+  </nav>
+
+  <!-- Content Area -->
+  <div class="admin-tab-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

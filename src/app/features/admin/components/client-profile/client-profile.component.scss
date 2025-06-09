@@ -1,0 +1,42 @@
+.form-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.logo-upload {
+  flex: 1 1 200px;
+}
+
+.logo-upload img {
+  width: 100px;
+  margin-top: 1rem;
+  border: 1px dashed #ccc;
+  padding: 0.5rem;
+}
+
+.form-fields {
+  flex: 2 1 600px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+
+label{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+input.form-control[readonly] {
+  background-color: #f8f9fa; /* light gray */
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input {
+  height: 1rem;
+  width: 2rem;
+}
