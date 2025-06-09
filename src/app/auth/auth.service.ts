@@ -39,28 +39,6 @@ export class AuthService {
       return throwError(() => new Error(`Account locked. Try again in ${Math.ceil((userAttempt.lockUntil - now) / 1000)}s`));
     }
 
-    // return of(
-    //   {
-    //     email, 
-    //     role: email === 'superadmin@offercraft.net' ? 'admin' : 'user', 
-    //     token: 'dummy-token' 
-    //   })
-    //   .pipe(
-    //   delay(500),
-    //   tap((user:any) => {
-
-    //     console.log("new user: ", user);
-
-    //     if ((email === 'superadmin@offercraft.net' && password === 'OfferCraft@2025') || (email === 'user@example.com' && password === 'user')) {
-    //       localStorage.setItem('user', JSON.stringify(user));
-    //       this.userSubject.next(user);
-    //     } else {
-    //       throw new Error('Invalid credentials');
-    //     }
-    //   })
-    // );
-
-
     return of({
       email,
       role: email === 'superadmin@offercraft.net' ? 'admin' : 'user',
