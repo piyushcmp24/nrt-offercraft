@@ -86,7 +86,6 @@ export class LoginComponent implements OnInit {
 
   updateErrorMessage() {
     this.error = `Account locked. Try again in ${this.countdown}s`;
-    // this.error = `Account locked. Try again in ${(this.countdown / 60).toFixed(2)} min`;
   }
 
   onSubmit() {

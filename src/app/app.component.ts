@@ -10,7 +10,16 @@ export class AppComponent implements OnInit {
   private logoutTimer: any;
   private readonly TIMEOUT = 2 * 60 * 1000; // 2 minutes
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) {
+
+    // Simulated user object
+    const mockUsers = {
+      'superadmin@offercraft.net': { password: 'OfferCraft@2025', role: 'admin' },
+      'user@example.com': { password: 'user', role: 'user' }
+    };
+    localStorage.setItem('mockUsers', JSON.stringify(mockUsers));
+
+  }
 
   ngOnInit(): void {
     this.startLogoutTimer();
