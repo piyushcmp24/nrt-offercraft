@@ -7,9 +7,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [LoginComponent, ForgotPasswordComponent, ResetPasswordComponent],
+  declarations: [LoginComponent, ForgotPasswordComponent, ResetPasswordComponent, ProfileComponent],
   imports: [
     CommonModule, 
     FormsModule,
