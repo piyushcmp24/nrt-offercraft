@@ -11,7 +11,7 @@
           placeholder="Username" (blur)="checkLockStatus()" [class.invalid]="email?.invalid && email?.touched"
           [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }" />
         <div *ngIf="email?.invalid && email?.touched" class="error-message">
-          <small *ngIf="email?.errors?.['required']">Email is required.</small>
+          <small *ngIf="email?.errors?.['required']">Username is required.</small>
           <small *ngIf="email?.errors?.['email']">Invalid email format.</small>
         </div>
       </div>
@@ -23,14 +23,13 @@
           [ngClass]="{ 'is-invalid': email?.invalid && email?.touched}" />
         <div *ngIf="password?.invalid && password?.touched" class="error-message">
           <small *ngIf="password?.errors?.['required']">Password is required.</small>
-          <small *ngIf="password?.errors?.['minlength']">Password must be at least 4 characters.</small>
         </div>
       </div>
       <div class="d-grid mb-3">
         <button type="submit" class="btn btn-primary w-100" [disabled]="countdown > 0 || form.invalid">Login</button>
       </div>
     </form>
-    
+
     <div class="forgot-password-link">
       <a routerLink="/forgot-password" class="forgot-password-link">Forgot your Password?</a>
     </div>
