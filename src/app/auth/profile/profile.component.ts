@@ -1,24 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PasswordValidator } from '../../shared/validators/password.validator';
 
 declare var bootstrap: any;
-
-function passwordComplexityValidator(control: AbstractControl): ValidationErrors | null {
-  const value = control.value || '';
-  const hasUpper = /[A-Z]/.test(value);
-  const hasLower = /[a-z]/.test(value);
-  const hasNumber = /[0-9]/.test(value);
-  const hasSpecial = /[!@#$%^&*]/.test(value);
-  const valid = value.length >= 8 && hasUpper && hasLower && hasNumber && hasSpecial;
-  return valid ? null : { passwordComplexity: true };
-}
-
-function passwordMatchValidator(group: AbstractControl): ValidationErrors | null {
-  const password = group.get('password')?.value;
-  const confirm = group.get('confirmPassword')?.value;
-  return password === confirm ? null : { passwordMismatch: true };
-}
 
 @Component({
   selector: 'app-profile',
@@ -55,9 +40,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     });
     this.passwordForm = this.fb.group({
       oldPassword: ['', Validators.required],
-      password: ['', [Validators.required, passwordComplexityValidator]],
+      password: ['', [Validators.required, PasswordValidator.passwordComplexity()]],
       confirmPassword: ['', Validators.required]
-    }, { validators: passwordMatchValidator });
+    }, { validators: PasswordValidator.passwordMatch('password', 'confirmPassword') });
   }
 
   ngOnInit(): void {
@@ -136,4 +121,12 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   get passwordCtrl() { return this.passwordForm.get('password'); }
   get confirmPasswordCtrl() { return this.passwordForm.get('confirmPassword'); }
+
+  getPasswordErrorMessage(control: AbstractControl): string {
+    return PasswordValidator.getPasswordErrorMessage(control);
+  }
+
+  getPasswordMatchErrorMessage(): string {
+    return this.passwordForm?.errors?.['passwordMismatch'] ? 'Passwords do not match.' : '';
+  }
 } 

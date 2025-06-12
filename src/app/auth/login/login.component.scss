@@ -1,7 +1,7 @@
 .login-container {
   height: 100vh;
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  align-items: end;
   justify-content: center;
   // background: linear-gradient(to top, #e0f2f1 40%, #b3e5fc 90%);
   // background-image: url('/assets/wood-floor.jpg'); // Optional wooden floor image
