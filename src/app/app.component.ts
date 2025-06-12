@@ -34,15 +34,15 @@ export class AppComponent implements OnInit {
   }
 
   startLogoutTimer() {
-    clearTimeout(this.logoutTimer);
-    const token = localStorage.getItem('token');
-    if (!token) return;
+    // clearTimeout(this.logoutTimer);
+    // const token = localStorage.getItem('token');
+    // if (!token) return;
 
-    this.logoutTimer = setTimeout(() => {
-      localStorage.clear();
-      alert('Session expired due to inactivity.');
-      this.router.navigate(['/login']);
-    }, this.TIMEOUT);
+    // this.logoutTimer = setTimeout(() => {
+    //   localStorage.clear();
+    //   alert('Session expired due to inactivity.');
+    //   this.router.navigate(['/login']);
+    // }, this.TIMEOUT);
   }
 
   isLoginPage(): boolean {

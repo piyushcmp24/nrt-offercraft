@@ -6,6 +6,7 @@ import { adminGuard } from './core/guard/admin.guard';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { HomeComponent } from './features/home/components/home.component';
+import { ProfileComponent } from './auth/profile/profile.component';
 
 const routes: Routes = [
   // {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'home', 
     component: HomeComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
     canActivate: [authGuard]
   },
   {
