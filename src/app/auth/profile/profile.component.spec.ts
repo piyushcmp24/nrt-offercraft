@@ -1,6 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileComponent } from './profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// Mock global bootstrap object
+(globalThis as any).bootstrap = {
+  Modal: class {
+    show() {}
+    hide() {}
+  },
+  Tooltip: class {
+    dispose() {}
+  }
+};
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -8,7 +20,8 @@ describe('ProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProfileComponent]
+      declarations: [ProfileComponent],
+      imports: [ReactiveFormsModule]
     })
     .compileComponents();
     
