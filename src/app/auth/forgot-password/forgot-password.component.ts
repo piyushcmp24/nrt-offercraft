@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../../auth/auth.service';
-import { ForgotPasswordService } from '../../core/service/forgot-password.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -13,8 +12,7 @@ export class ForgotPasswordComponent {
   message: string = '';
   error: string = '';
 
-  constructor(private fb: FormBuilder, private authService: AuthService, 
-    private forgotService: ForgotPasswordService) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.form = this.fb.group({
       email: '',
     });
@@ -30,21 +28,21 @@ export class ForgotPasswordComponent {
     // const email = this.form.value;
     if (this.form.valid) {
       const email = this.form.value.email;
-      this.forgotService.sendForgotPasswordEmail(email).subscribe({
-        next: () => { console.log(email); this.message = 'A password reset link has been sent to your email'; },
-        error: () => { this.error = `We couldn't find an account with that email address.`; }
-      });
-
-      // this.authService.requestPasswordReset(email).subscribe({
-      //   next: () => {
-      //     this.message = 'Reset link sent. Check your email.';
-      //     this.error = '';
-      //   },
-      //   error: (err) => {
-      //     this.error = 'Error sending reset link.';
-      //     this.message = '';
-      //   }
+      // this.forgotService.sendForgotPasswordEmail(email).subscribe({
+      //   next: () => { console.log(email); this.message = 'A password reset link has been sent to your email'; },
+      //   error: () => { this.error = `We couldn't find an account with that email address.`; }
       // });
+
+      this.authService.requestPasswordReset(email).subscribe({
+        next: () => {
+          this.message = 'A password reset link has been sent to your email.';
+          this.error = '';
+        },
+        error: (err) => {
+          this.error = `We couldn't find an account with that email address.`;
+          this.message = '';
+        }
+      });
     }
   }
 
