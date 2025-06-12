@@ -94,7 +94,7 @@
                 <div class="col-sm-10">
                   <input type="password" class="form-control" id="oldPassword" formControlName="oldPassword" placeholder="Old Password">
                   <div *ngIf="passwordForm.get('oldPassword')?.touched && passwordForm.get('oldPassword')?.invalid" class="text-danger small">
-                    Old password is required.
+                    {{ getPasswordErrorMessage(passwordForm.get('oldPassword')) }}
                   </div>
                 </div>
               </div>
@@ -103,10 +103,7 @@
                 <div class="col-sm-10">
                   <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
                   <div *ngIf="passwordCtrl && passwordCtrl.touched && passwordCtrl.errors" class="text-danger small">
-                    <div *ngIf="passwordCtrl.errors['required']">Password is required.</div>
-                    <div *ngIf="passwordCtrl.errors['passwordComplexity']">
-                      Password must be at least 8 characters and include uppercase, lowercase, number, and special character (!&#64;#$%^&*).
-                    </div>
+                    {{ getPasswordErrorMessage(passwordCtrl) }}
                   </div>
                 </div>
               </div>
@@ -115,7 +112,7 @@
                 <div class="col-sm-10">
                   <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password">
                   <div *ngIf="confirmPasswordCtrl?.touched && passwordForm?.errors?.['passwordMismatch']" class="text-danger small">
-                    Passwords do not match.
+                    {{ getPasswordMatchErrorMessage() }}
                   </div>
                 </div>
               </div>

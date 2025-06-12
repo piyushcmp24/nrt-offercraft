@@ -6,7 +6,7 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div appearance="fill" class="full-width">
         <!-- <input matInput formControlName="email" type="email" placeholder="Enter Email" (blur)="checkLockStatus()" [class.invalid]="email?.invalid && email?.touched" /> -->
-        <input type="text" class="form-control ng-dirty ng-valid ng-touched" formControlName="email" placeholder="Enter Email" 
+        <input type="text" class="form-control ng-dirty ng-valid ng-touched" formControlName="email" placeholder="Username" 
         (blur)="checkLockStatus()" [class.invalid]="email?.invalid && email?.touched" 
         [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }"
         />
@@ -19,7 +19,7 @@
       <div appearance="fill" class="full-width">
         <!-- <input matInput formControlName="password" type="password" placeholder="Enter Password" [class.invalid]="password?.invalid && password?.touched"/> -->
         <input type="password" class="form-control ng-dirty ng-valid ng-touched" formControlName="password" 
-        placeholder="Enter Password" 
+        placeholder="Password" 
         [class.invalid]="password?.invalid && password?.touched" 
         [ngClass]="{ 'is-invalid': email?.invalid && email?.touched}"
         />
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="d-grid mb-3">
-        <button type="submit" class="full-width" class="btn btn-block btn-primary" [disabled]="countdown > 0 || form.invalid">Login</button>
+        <button type="submit" class="full-width" class="btn btn-primary" [disabled]="countdown > 0 || form.invalid">Login</button>
       </div>
     </form>
 
@@ -38,4 +38,7 @@
       <a routerLink="/forgot-password" class="forgot-password-link">Forgot your Password?</a>
     </div>
   </div>
+  <div class="footer ps-4" style="color: white;">
+    <P>© 2015 - 2025 OfferCraft, Patent-Pending </P> 
+   </div>
 </div>
