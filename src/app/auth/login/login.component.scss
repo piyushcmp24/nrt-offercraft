@@ -1,27 +1,27 @@
 .login-container {
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   // background: linear-gradient(to top, #e0f2f1 40%, #b3e5fc 90%);
   // background-image: url('/assets/wood-floor.jpg'); // Optional wooden floor image
   background: url("/assets/images/ofc-bg.jpg") 50%/cover no-repeat;
-  // background-position: bottom;
+  padding-top: 100px;
   // background-size: cover;
   // background-repeat: no-repeat;
 }
 
 .login-box {
   // background: rgba(255, 255, 255, 0.95);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 8px;
   text-align: center;
-  width: 320px;
+  width: 335px;
   // box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 
 .logo {
-  width: 140px;
+  width: 175px;
   margin-bottom: 20px;
 }
 
@@ -50,4 +50,13 @@
   text-align: left;
   margin-bottom: 10px;  // Space before next input
   padding-left: 2px;    // Optional: aligns nicely under input
+}
+
+.message-display{
+  position: absolute; width: 100%;
+  font-size: 14px;
+}
+
+.forgot-password-link{
+  text-align: left;
 }
