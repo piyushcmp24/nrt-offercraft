@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject, delay, of, tap, throwError } from 'rxjs';
+import { BehaviorSubject, delay, Observable, of, tap, throwError } from 'rxjs';
 import { User } from './models/user.model';
 
 @Injectable({ providedIn: 'root' })
@@ -28,7 +28,6 @@ export class AuthService {
   // }
 
   login(email: string, password: string) {
-
     const MAX_ATTEMPTS = 5;
     const LOCK_DURATION_MS = 1 * 60 * 1000; // 1 minute
     const loginAttempts = JSON.parse(localStorage.getItem('loginAttempts') || '{}');
@@ -91,5 +90,11 @@ export class AuthService {
 
   requestPasswordReset(email: string) {
     return this.http.post('/api/auth/forgot-password', { email });
+    // return;
+  }
+
+  resetPassword(data: { password: string, token: string }): Observable<any> {
+      // Adjust the API URL based on your backend
+    return this.http.post('/api/auth/reset-password', data);
   }
 }

@@ -9,13 +9,13 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { HomeComponent } from './features/home/components/home.component';
-// import { ProfileComponent } from './auth/profile/profile.component
-
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +25,9 @@ import { HomeComponent } from './features/home/components/home.component';
     HttpClientModule,
     AuthModule,
     // provideHttpClient(withInterceptors([authInterceptor]))
+  ],
+  exports:[
+    LoaderComponent
   ],
   // providers: [
   //   provideAnimationsAsync()

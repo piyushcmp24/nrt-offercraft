@@ -2,33 +2,35 @@
   {{ error }}
 </div>
 
-<div class="login-container"> 
-  <div class="login-box"> 
-
+<div class="login-container">
+  <div class="login-box">
     <img src="./assets/images/ofc-logo.png" alt="OfferCraft" class="logo" />
-    
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div appearance="fill" class="full-width">
-        <input type="text" class="form-control ng-dirty ng-valid ng-touched" formControlName="email" placeholder="Username" 
-        (blur)="checkLockStatus()" [class.invalid]="email?.invalid && email?.touched" 
-        [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }"
-        />
+        <input type="text" class="form-control ng-dirty ng-valid ng-touched" formControlName="email"
+          placeholder="Username" (blur)="checkLockStatus()" [class.invalid]="email?.invalid && email?.touched"
+          [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }" />
         <div *ngIf="email?.invalid && email?.touched" class="error-message">
           <small *ngIf="email?.errors?.['required']">Username is required.</small>
+<<<<<<< HEAD
           <small *ngIf="email?.errors?.['email']">Invalid UserName.</small>
+=======
+          <small *ngIf="email?.errors?.['email']">Invalid email format.</small>
+>>>>>>> 0d526bd10f6436f87ef18f12b5fa648114b75d4c
         </div>
       </div>
-      
+
       <div appearance="fill" class="full-width">
         <!-- <input matInput formControlName="password" type="password" placeholder="Enter Password" [class.invalid]="password?.invalid && password?.touched"/> -->
-        <input type="password" class="form-control ng-dirty ng-valid ng-touched" formControlName="password" 
-        placeholder="Password" 
-        [class.invalid]="password?.invalid && password?.touched" 
-        [ngClass]="{ 'is-invalid': email?.invalid && email?.touched}"
-        />
+        <input type="password" class="form-control ng-dirty ng-valid ng-touched" formControlName="password"
+          placeholder="Password" [class.invalid]="password?.invalid && password?.touched"
+          [ngClass]="{ 'is-invalid': email?.invalid && email?.touched}" />
         <div *ngIf="password?.invalid && password?.touched" class="error-message">
           <small *ngIf="password?.errors?.['required']">Password is required.</small>
+<<<<<<< HEAD
           <small *ngIf="password?.errors?.['minlength']">Password is invalid.</small>
+=======
+>>>>>>> 0d526bd10f6436f87ef18f12b5fa648114b75d4c
         </div>
       </div>
       <div class="d-grid mb-3">
@@ -40,7 +42,10 @@
       <a routerLink="/forgot-password" class="forgot-password-link">Forgot your Password?</a>
     </div>
   </div>
-  <div class="footer ps-4" style="color: white;">
-    <P>© 2015 - 2025 OfferCraft, Patent-Pending </P> 
-   </div>
+
+  <div class="footer-text">
+    &copy; 2015 - 2025 OfferCraft, Patent-Pending
+  </div>
+
 </div>
+

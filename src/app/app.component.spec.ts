@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 // Stub for app-footer
 @Component({ selector: 'app-footer', template: '' })
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         AppFooterStubComponent,  // <- stub for <app-footer>
-        AppHeaderStubComponent   // <- if you use <app-header>
+        AppHeaderStubComponent,   // <- if you use <app-header>
+        LoaderComponent 
       ],
     }).compileComponents();
   });
