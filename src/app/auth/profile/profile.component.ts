@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PasswordValidator } from '../../shared/validators/password.validator';
+import { LoaderService } from '../../core/service/loader.service';
 
 declare var bootstrap: any;
 
@@ -25,7 +26,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private loader: LoaderService
   ) {
     this.profileForm = this.fb.group({
       email: [{ value: '', disabled: true }],
@@ -59,7 +61,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   loadProfileData(): void {
     // TODO: Replace with your actual service call
-    this.loading = true;
+    // this.loading = true;
+    // this.loader.show();
     // this.adminService.getProfile().subscribe({
     //   next: (data) => {
     //     this.profileForm.patchValue(data);
