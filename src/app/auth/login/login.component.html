@@ -12,7 +12,7 @@
           [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }" />
         <div *ngIf="email?.invalid && email?.touched" class="error-message">
           <small *ngIf="email?.errors?.['required']">Username is required.</small>
-          <small *ngIf="email?.errors?.['email']">Invalid email format.</small>
+          <small *ngIf="email?.errors?.['email']">Invalid UserName.</small>
         </div>
       </div>
 
@@ -23,6 +23,7 @@
           [ngClass]="{ 'is-invalid': email?.invalid && email?.touched}" />
         <div *ngIf="password?.invalid && password?.touched" class="error-message">
           <small *ngIf="password?.errors?.['required']">Password is required.</small>
+          <small *ngIf="password?.errors?.['minlength']">Password is invalid.</small>
         </div>
       </div>
       <div class="d-grid mb-3">
